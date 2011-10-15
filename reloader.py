@@ -56,7 +56,7 @@ def peers_alive(config):
   
   auth_OK = True
 
-  dictionary = Dictionary("dictionary.rfc2865")
+  dictionary = Dictionary("dict/dictionary.rfc2865")
   
   for server in config['servers']:
     srv = Client(server=server, secret=str(config['secret']), dict=dictionary)
