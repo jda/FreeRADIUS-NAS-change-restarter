@@ -1,0 +1,34 @@
+DELIMITER |
+CREATE TRIGGER `nas_insert`
+AFTER INSERT ON `nas`
+FOR EACH ROW
+BEGIN
+INSERT INTO `nas_changes` (kind) VALUES ("insert");
+END;
+|
+DELIMITER ;
+
+DELIMITER |
+CREATE TRIGGER `nas_update`
+AFTER UPDATE ON `nas`
+FOR EACH ROW
+BEGIN
+INSERT INTO `nas_changes` (kind) VALUES ("update");
+END;
+|
+DELIMITER ;
+
+DELIMITER |
+CREATE TRIGGER `nas_delete`
+AFTER DELETE ON `nas`
+FOR EACH ROW
+BEGIN
+INSERT INTO `nas_changes` (kind) VALUES ("delete");
+END;
+|
+DELIMITER ;
+
+
+
+
+

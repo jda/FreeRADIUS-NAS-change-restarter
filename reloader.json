@@ -1,0 +1,22 @@
+{
+  "local": {
+    "radpath": "/etc/init.d/freeradius"
+  },
+
+  "database": {
+    "host": "localhost",
+    "username": "radius",
+    "password": "radpass"
+  },
+
+  "radius": {
+    "username": "testuser",
+    "password": "testpass",
+    "secret": "testing123",
+    "servers": [
+      "radius1.example.net",
+      "radius2.example.net"
+    ]
+  }
+}
+
