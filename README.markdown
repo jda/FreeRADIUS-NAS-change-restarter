@@ -15,3 +15,10 @@ A MySQL table definition, triggers, and a python program to track changes to the
 * pyrad 2: http://pypi.python.org/pypi/pyrad/2.0
 * MySQL for Python
 
+## How do I use this?
+* Create the NAS updates table by loading sql/table.sql into MySQL.
+* Load triggers from sql/triggers.sql
+* Customize reloader.json for your environment. Save reloader.json to /etc/reloader.json
+* Make sure /var/lib/reloader exists and the user that will run reloader has read and write permissions to it.
+* Run reloader.py from cron every 5 minutes or so.
+
