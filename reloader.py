@@ -105,7 +105,7 @@ local_ver = get_local_version(markerpath)
 if db_ver > local_ver:
   print "Reload needed"
   
-  if peers_alive(config['radius']):
+  if peers_alive(config):
     print "Peers alive. Time for random sleep to reduce change of collision with other restart"
     time.sleep(random.randrange(5,30,1))
     if peers_alive(config):
