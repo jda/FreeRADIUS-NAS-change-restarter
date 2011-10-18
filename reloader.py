@@ -54,16 +54,19 @@ def peers_alive(config):
   from pyrad.client import Client
   from pyrad.dictionary import Dictionary
   
+  radconfig = config['radius']
+  localconfig = config['local']
+
   auth_OK = True
 
-  dictionary = Dictionary("dict/dictionary.rfc2865")
+  dictionary = Dictionary(localconfig['raddict'])
   
-  for server in config['servers']:
-    srv = Client(server=server, secret=str(config['secret']), dict=dictionary)
+  for server in radconfig['servers']:
+    srv = Client(server=server, secret=str(radconfig['secret']), dict=dictionary)
     req = srv.CreateAuthPacket(code=pyrad.packet.AccessRequest,
-      User_Name=config['username'],
+      User_Name=radconfig['username'],
       NAS_Identifier="localhost")
-    req["User-Password"] = req.PwCrypt(config['password'])
+    req["User-Password"] = req.PwCrypt(radconfig['password'])
 
     try:
       reply = srv.SendPacket(req)
@@ -105,7 +108,7 @@ if db_ver > local_ver:
   if peers_alive(config['radius']):
     print "Peers alive. Time for random sleep to reduce change of collision with other restart"
     time.sleep(random.randrange(5,30,1))
-    if peers_alive(config['radius']):
+    if peers_alive(config):
       print "Peers alive both times, restarting"
       status = restart_radius(config['local']['radpath'])
 

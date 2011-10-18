@@ -1,6 +1,7 @@
 {
   "local": {
-    "radpath": "/etc/init.d/freeradius"
+    "radpath": "/etc/init.d/freeradius",
+    "raddict": "/usr/share/freeradius/dictionary.rfc2865"
   },
 
   "database": {
