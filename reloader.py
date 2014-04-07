@@ -24,7 +24,7 @@ def get_db_version(config):
     "radius")
 
   curs = conn.cursor()
-  curs.execute("SELECT `id` from `nas_changes` order by `when` desc limit 1")
+  curs.execute("SELECT `id` from `nas_changes` order by `id` desc limit 1")
   data = curs.fetchone()[0]
   
   curs.close()
