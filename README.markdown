@@ -13,12 +13,13 @@ A MySQL table definition, triggers, and a python program to track changes to the
 ## What does it need to run? 
 * Python 2
 * pyrad 2: http://pypi.python.org/pypi/pyrad/2.0
-* MySQL for Python
+* MySQL for Python (python-mysqldb)
 
 ## How do I use this?
 * Create the NAS updates table by loading sql/table.sql into MySQL.
 * Load triggers from sql/triggers.sql
 * Customize reloader.json for your environment. Save reloader.json to /etc/reloader.json
 * Make sure /var/lib/reloader exists and the user that will run reloader has read and write permissions to it.
+* Make sure there is at least one entry in the nas_changes table as the result of a change in the nas table
 * Run reloader.py from cron every 5 minutes or so.
 
