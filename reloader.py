@@ -120,5 +120,5 @@ if db_ver > local_ver:
         print "Peers dead. Try later"
 
 else:
-  print "No changes detected in mysql database - no reloaded needed"
+  print "No changes detected in mysql database - no reload needed"
   
