@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # Safely reload FreeRADIUS after NAS table changes
 # 10-2011 Jon Auer
+#
+
 
 try:
   import json
@@ -21,7 +23,7 @@ def get_db_version(config):
     config['host'],
     config['username'],
     config['password'],
-    "radius")
+    config['database'])
 
   curs = conn.cursor()
   curs.execute("SELECT `id` from `nas_changes` order by `id` desc limit 1")
@@ -117,3 +119,6 @@ if db_ver > local_ver:
       else:
         print "Peers dead. Try later"
 
+else:
+  print "No changes detected in mysql database - no reloaded needed"
+  
