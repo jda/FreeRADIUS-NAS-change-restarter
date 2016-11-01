@@ -1,5 +1,5 @@
 # FreeRADIUS NAS change restarter
-Yes, the name is a mouthful.
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
 ## What is this?
 A MySQL table definition, triggers, and a python program to track changes to the NAS table and restart FreeRADIUS after ensuring that other RADIUS servers are running (to avoid creating downtime).
